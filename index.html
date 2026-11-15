@@ -9,7 +9,7 @@
 <meta property="og:title" content="Jayden Low | Portfolio">
 <meta property="og:description" content="UX/UI design, research and graphic design projects by Jayden Low, University of Washington.">
 <meta name="theme-color" content="#0c4a0c">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg1:#357f2c;--bg2:#3d3b3b;--neon:#3dff1c;--g:#2f8a2a;--ink:#f4f4f4;--screen:#161616;--purple:#4a2a85;--sand:#c9b57a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#357f2c;--bg2:#3d3b3b;--ink:#f4f4f4}}
@@ -201,6 +201,87 @@ a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .graf.g3{right:2%;top:12%;transform:rotate(-6deg)}
 .graf.g4{left:2%;bottom:14%;transform:rotate(4deg)}
 @media (max-width:900px){.graf.g2,.graf.g3,.graf.g4{display:none}.graf.g1{width:130px}}
+/* AI Games */
+.page h3{font:700 clamp(1.15rem,2.4vw,1.5rem) 'Share Tech Mono',monospace;margin:26px 0 12px}
+.page h3:first-of-type{margin-top:8px}
+.page video{width:100%;height:auto;display:block;border-radius:12px;background:#000;box-shadow:0 10px 26px #0006}
+.hubsub{text-align:center;max-width:560px;margin:-6px auto 26px}
+.summary{display:grid;grid-template-columns:minmax(0,2.84fr) minmax(0,1fr);gap:20px;align-items:start;margin-top:8px}
+.sumrow{display:flex;gap:18px 26px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:22px}
+.sumrow .big{margin:0;flex:1 1 380px}
+.vidhero{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:32px;align-items:center}
+.vidhero video{max-height:640px;width:auto;max-width:100%;margin:0 auto}
+.facts{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.lead1{margin:4px 0 0}
+.page figure.herobanner{margin:0 auto;max-width:820px}.herobanner img{border-radius:12px;cursor:default;box-shadow:0 10px 26px #0006}
+.facts.chips{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px}
+.facts.chips li{display:flex;flex-direction:column;gap:2px}.facts.chips b{margin:0;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.page video.endvid{max-height:680px;width:auto;max-width:100%;margin:8px auto 0}
+@media (max-width:760px){.facts.chips{grid-template-columns:1fr 1fr}}
+.facts li{background:#fff8;border-radius:10px;padding:10px 14px;font-size:1rem}.facts b{color:#35106b;margin-right:6px}
+.feat.steps div{font-size:1.02rem;line-height:1.45}.feat.steps b{display:block;font-size:1.15rem;margin-bottom:4px;color:#35106b}
+.gal2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:860px;margin:0 auto 8px}
+.gal2.refs{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:820px}
+@media (max-width:560px){.gal2.refs{grid-template-columns:repeat(2,minmax(0,1fr));max-width:440px}}
+.sys{background:#141414;border-radius:16px;padding:clamp(18px,3vw,32px) clamp(12px,2vw,24px);color:#fff;box-shadow:inset 0 0 0 2px var(--neon),0 0 24px #3dff1c55;margin:12px 0 20px}
+.sys .row{display:grid;grid-template-columns:1fr 54px 1fr 54px 1fr 54px 1fr;align-items:center;gap:4px}
+.sys .node{text-align:center}
+.sys .node svg{width:min(118px,100%);height:auto;display:block;margin:0 auto}
+.sys .t{font:700 clamp(1.8rem,2.7vw,2.4rem)/1 'Caveat',cursive;color:var(--neon);text-shadow:0 0 10px #3dff1c88;margin-top:10px}
+.sys .s{font:600 1.3rem/1.15 'Caveat',cursive;margin-top:4px}
+.sys .arr{width:100%;height:auto;display:block}
+.sys .note{text-align:center;font:600 clamp(1.3rem,2.2vw,1.6rem)/1.3 'Caveat',cursive;margin:26px 0 0}
+.sys .note b{color:var(--neon)}
+.how{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:4px 0 8px}
+.how div{background:#fff8;border-radius:14px;padding:16px 18px;font-size:1.02rem;line-height:1.45}
+.how b{display:block;font:700 .95rem 'Orbitron',sans-serif;text-transform:uppercase;letter-spacing:.04em;color:#35106b;margin-bottom:6px}
+@media (max-width:900px){.how{grid-template-columns:1fr 1fr}}
+.mech{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.5fr);gap:32px;align-items:center;margin-top:8px}
+.phonebox{text-align:center}
+.tilt{display:flex;align-items:center;justify-content:center;gap:10px}
+.tilt .arr{width:26px;height:auto;flex:none}
+.phone{position:relative;width:100%;max-width:250px;padding:8px;border-radius:44px;background:linear-gradient(145deg,#4a4a4f,#151517 40%,#2b2b2e);box-shadow:0 0 0 2px #0b0b0c,0 18px 36px #0007,inset 0 0 2px #fff4}
+.phone img{width:100%;height:auto;display:block;border-radius:36px;box-shadow:none}
+.phone .island{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:30%;height:20px;border-radius:12px;background:#000}
+.phone .btn{position:absolute;width:4px;border-radius:2px;background:#2b2b2e}
+.phone .b1{left:-3px;top:18%;height:7%}.phone .b2{left:-3px;top:28%;height:7%}.phone .b3{right:-3px;top:24%;height:11%}
+.phonebox figcaption{margin-top:12px}
+.combo{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.combo li{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff8;border-radius:12px;padding:10px 14px}
+.combo b{font:700 .9rem 'Orbitron',sans-serif;text-transform:uppercase;letter-spacing:.03em;color:#35106b}
+.combo span{display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.combo i,.legend i{font-style:normal;display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:#141414;color:#3dff1c;font:700 1.25rem/1 system-ui,sans-serif;box-shadow:inset 0 0 0 1.5px #3dff1c88}
+.combo em,.legend em{font-style:normal;font-weight:700;font-size:1.2rem;color:#35106b}
+.legend{margin:14px 0 0;font-size:1rem;display:flex;align-items:center;gap:6px;flex-wrap:wrap}.legend i{width:28px;height:28px;font-size:1rem}
+@media (max-width:760px){.mech{grid-template-columns:1fr}.phone{max-width:200px;border-radius:36px;padding:6px}.phone img{border-radius:30px}.phone .island{top:12px;height:16px}}
+@media (max-width:480px){.combo{grid-template-columns:1fr}}
+/* Red Square diorama (interactive 3D model, golden-hour look from the game) */
+.dio{--d-ink:#f6e9d6;--d-dim:#c9b49b;--d-brick:#b4553a;--d-chip:rgba(30,20,18,.62);--d-line:rgba(246,233,214,.16);position:relative;height:min(78vh,720px);min-height:420px;border-radius:16px;overflow:hidden;margin:12px 0 4px;color:var(--d-ink);background:radial-gradient(120% 90% at 60% 100%,#7a4a32 0%,#4a2e24 38%,#2a1c1a 75%);box-shadow:0 10px 26px #0006;font:14px/1.45 system-ui,-apple-system,'Segoe UI',sans-serif}
+.dio:fullscreen{height:100%;border-radius:0}
+.dio .stage{position:absolute;inset:0}
+.dio canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+.dio canvas:active{cursor:grabbing}
+.dio .labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.dio button{font:500 13px system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--d-ink);background:var(--d-chip);border:1px solid var(--d-line);border-radius:999px;padding:8px 14px;cursor:pointer;backdrop-filter:blur(6px)}
+.dio button:hover{border-color:var(--d-dim)}
+.dio button:focus-visible{outline:2px solid var(--d-brick);outline-offset:2px}
+.dio button[aria-pressed="true"]{background:var(--d-brick);border-color:var(--d-brick)}
+.dio .pin{position:absolute;left:0;top:0;transform:translate(-50%,-100%);pointer-events:auto;display:flex;flex-direction:column;align-items:center;background:none;border:0;padding:0;border-radius:0;backdrop-filter:none}
+.dio .pin b{font:600 12px system-ui,sans-serif;white-space:nowrap;background:var(--d-chip);border:1px solid var(--d-line);padding:4px 9px;border-radius:999px;backdrop-filter:blur(6px)}
+.dio .pin:hover b,.dio .pin.on b{background:var(--d-brick);border-color:var(--d-brick)}
+.dio .pin i{width:1px;height:18px;background:var(--d-dim)}
+.dio .pin:focus-visible{outline:none}.dio .pin:focus-visible b{outline:2px solid var(--d-brick);outline-offset:2px}
+.dio .bottom{position:absolute;left:16px;right:16px;bottom:14px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;pointer-events:none}
+.dio .controls{min-width:0;max-width:min(36rem,100%);display:flex;flex-wrap:wrap;gap:8px;pointer-events:auto}
+.dio .hint{color:var(--d-dim);font-size:12px;width:100%;margin:0}
+.dio .credits{min-width:0;margin:0;font-size:11px;color:var(--d-dim);text-align:right;max-width:min(26rem,100%)}
+.dio .dcard{position:absolute;right:16px;top:16px;max-width:min(300px,calc(100% - 32px));background:var(--d-chip);border:1px solid var(--d-line);border-radius:14px;padding:14px 16px;backdrop-filter:blur(8px)}
+.dio .dcard h4{font:700 1.2rem 'Orbitron',sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:0 0 6px}
+.dio .dcard p{margin:0;color:var(--d-dim)}
+.dio .loading{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font:700 1.3rem 'Orbitron',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--d-dim)}
+.dio [hidden]{display:none!important}
+@media (max-width:560px){.dio{height:72vh}.dio .dcard{top:auto;bottom:150px;left:16px}.dio .credits{text-align:left}.dio .pin b{font-size:11px;padding:3px 7px}.dio .hint{font-size:11px}}
+@media (max-width:760px){.summary,.vidhero{grid-template-columns:1fr}.summary video,.vidhero video{max-height:70vh;width:auto;max-width:100%;margin:0 auto}.sys .row{grid-template-columns:1fr}.sys .arr{width:46px;margin:6px auto;transform:rotate(90deg)}.how{grid-template-columns:1fr}.gal2{gap:12px}}
 </style>
 </head>
 <body>
@@ -267,6 +348,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}
     <article class="card"><img class="thumb contain" data-i="tHusky" alt="HuskyAthletics app screens"><h3>Husky Athletics</h3><div class="chips"><span>UX/UI</span><span>Research</span><span>Prototype</span></div><p>Prototyped a mobile app concept that helps UW students find sports partners.</p><a class="key neon" href="#husky">Enter</a></article>
     <article class="card"><img class="thumb" data-i="tOde" alt="Redesigned Odegaard sign on a wall"><h3>Odegaard Signage Redesign</h3><div class="chips"><span>Signage</span><span>Visual hierarchy</span><span>Group project</span></div><p>Redesigned library signage to help students navigate Odegaard’s renovations.</p><a class="key neon" href="#odegaard">Enter</a></article>
     <article class="card"><img class="thumb" data-i="tSkate" alt="Skate Club poster on a wall"><h3>Skate Club Posters</h3><div class="chips"><span>Graphic design</span><span>Event posters</span></div><p>Created a collage-style event poster for a Skate Club meetup at Red Square.</p><a class="key neon" href="#skate">Enter</a></article>
+    <article class="card"><img class="thumb" src="images/skate-uw/main-menu.webp" alt="Skate UW main menu with my 3D skater in Red Square"><h3>AI Games</h3><div class="chips"><span>Game design</span><span>3D modeling</span><span>AI tools</span></div><p>Skate UW: a 3D skateboarding game at Red Square that you control with your phone.</p><a class="key neon" href="#games">Enter</a></article>
   </div>
 </main>
 
@@ -359,6 +441,96 @@ a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}
   <div id="sbar" aria-hidden="true"><img data-i="board" alt=""></div>
 </main>
 
+<!-- AI GAMES (hub: one slide per game) -->
+<main class="view" id="games">
+  <h1 class="lcd" style="text-align:center">AI Games</h1>
+  <p class="sub hubsub">Games I design and build with AI tools</p>
+  <section class="page">
+    <p class="tag">Game 01 · Nov. 2026</p>
+    <h2>Skate UW</h2>
+    <div class="summary"><figure><img class="zoom" src="images/skate-uw/main-menu.webp" alt="Skate UW main menu: my 3D skater standing on a board in Red Square" loading="lazy"><figcaption>Main menu</figcaption></figure><figure><video data-auto muted loop playsinline preload="none" poster="images/skate-uw/gameplay-poster.jpg" src="images/skate-uw/gameplay.mp4" aria-label="Video: playing Skate UW on the laptop while steering with my phone"></video><figcaption>Playing with my phone</figcaption></figure></div>
+    <div class="sumrow">
+      <p class="big"><b>A 3D skateboarding game set in UW's Red Square, played with your phone.</b> Tilt to steer, swipe to do tricks. The skater is a 3D model of me.</p>
+      <a class="key neon" href="#skate-uw">Learn more &rarr;</a>
+    </div>
+  </section>
+  <a class="key back" href="#projects">Back</a>
+</main>
+
+<!-- SKATE UW (details, opened from Learn more) -->
+<main class="view" id="skate-uw">
+  <section class="page herobox"><figure class="herobanner"><img src="images/skate-uw/hero.webp" alt="Skate UW: a browser skate game where your phone is the skateboard. Tilt to carve, swipe to flip. Built with Three.js, React Three Fiber, Rapier, Socket.IO and Blender. A laptop shows my skater in Red Square while a phone shows the skateboard controller."></figure></section>
+  <section class="page">
+    <h2>Built with AI</h2><p class="tag">How I got from an idea to a running game</p>
+    <div class="how">
+      <div><b>1 · Imagine</b>An AI image set the look and mood.</div>
+      <div><b>2 · Plan</b>I wrote short design docs for the look, the map and the character.</div>
+      <div><b>3 · Build</b>I described each feature to Claude Code, which wrote the game code and Blender scripts.</div>
+      <div><b>4 · Play-test</b>I tested every trick on my phone and tuned the feel: tilt dead zone, sensitivity and airtime.</div>
+    </div>
+  </section>
+  <section class="page">
+    <h2>How It Connects</h2><p class="tag">The system behind the phone controller</p>
+    <div class="sys" role="img" aria-label="System design: the phone sends tilt and swipes over Wi-Fi through a Node.js and Socket.IO server to the game engine, which Three.js draws on the laptop screen">
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="sketch"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter></svg>
+      <div class="row"><div class="node"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketch)"><rect x="36" y="8" width="48" height="104" rx="10"/><path d="M54 16h12"/><rect x="48" y="28" width="24" height="66" rx="12"/><circle cx="54" cy="36" r="2"/><circle cx="66" cy="36" r="2"/><circle cx="54" cy="86" r="2"/><circle cx="66" cy="86" r="2"/><path d="M96 38q10 22 0 44"/><path d="M90 76l6 7 6-8"/><path d="M24 40q-10 20 0 40"/></g></svg><div class="t">Phone</div><div class="s">controller input<br>tilt + swipes</div></div><svg class="arr" viewBox="0 0 60 40" aria-hidden="true"><g fill="none" stroke="#3dff1c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketch)"><path d="M6 24q24-18 46-2"/><path d="M42 14l10 8-12 4"/></g></svg><div class="node"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketch)"><path d="M18 52a60 60 0 0 1 84 0"/><path d="M32 68a40 40 0 0 1 56 0"/><path d="M46 84a20 20 0 0 1 28 0"/><circle cx="60" cy="100" r="5" fill="#fff"/></g></svg><div class="t">Wi-Fi</div><div class="s">Node.js +<br>Socket.IO</div></div><svg class="arr" viewBox="0 0 60 40" aria-hidden="true"><g fill="none" stroke="#3dff1c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketch)"><path d="M6 24q24-18 46-2"/><path d="M42 14l10 8-12 4"/></g></svg><div class="node"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketch)"><circle cx="60" cy="60" r="36" stroke-width="13" stroke-dasharray="12 9" stroke-linecap="butt"/><circle cx="60" cy="60" r="27" fill="#141414"/><circle cx="60" cy="60" r="11"/></g></svg><div class="t">Game Engine</div><div class="s">skate physics<br>(Rapier)</div></div><svg class="arr" viewBox="0 0 60 40" aria-hidden="true"><g fill="none" stroke="#3dff1c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketch)"><path d="M6 24q24-18 46-2"/><path d="M42 14l10 8-12 4"/></g></svg><div class="node"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketch)"><rect x="10" y="16" width="100" height="68" rx="6"/><path d="M60 84v14M40 102h40"/><path d="M20 38q0 32 26 32h28q26 0 26-32"/><path d="M52 60l14-6"/><circle cx="54" cy="64" r="2"/><circle cx="66" cy="58" r="2"/></g></svg><div class="t">Graphics</div><div class="s">Three.js<br>Red Square</div></div></div>
+      <p class="note">Scan a <b>QR code</b> on the laptop, and the phone's browser becomes the controller. <b>No app needed.</b></p>
+    </div>
+    <div class="feat steps"><div><b>1. Press Play</b>The laptop shows a QR code.</div><div><b>2. Scan it</b>On the same Wi-Fi, the controller opens in the phone's browser.</div><div><b>3. Tap Start</b>Allow motion access. The way you hold the phone becomes &ldquo;level&rdquo;.</div><div><b>4. Skate</b>Tilt and swipes stream to the laptop about 50 times a second.</div></div>
+    <p class="insight">The controller runs over a secure (HTTPS) connection, because browsers only share tilt sensor data with secure pages.</p>
+  </section>
+  <section class="page">
+    <h2>Explore the Level</h2><p class="tag">Red Square, rebuilt from OpenStreetMap &middot; interactive 3D model</p>
+    <div class="dio" id="dio">
+      <div class="stage"></div>
+      <div class="labels" aria-label="Places on the map"></div>
+      <div class="loading"><span>Loading the plaza&hellip; <span class="pct">0%</span></span></div>
+      <div class="dcard" hidden><h4></h4><p></p></div>
+      <div class="bottom">
+        <div class="controls">
+          <button class="spin" type="button" aria-pressed="true">Auto-rotate</button>
+          <button class="tags" type="button" aria-pressed="true">Labels</button>
+          <button class="reset" type="button">Reset view</button>
+          <button class="full" type="button">Full screen</button>
+          <p class="hint">Drag to orbit &middot; scroll or pinch to zoom &middot; right-drag to pan &middot; tap a label to fly there</p>
+        </div>
+        <p class="credits">Modelled in Blender, rendered with three.js &middot; plaza drawn at 1.25&times; &middot; steps 17.5 cm, as built<br>Map data &copy; OpenStreetMap contributors</p>
+      </div>
+    </div>
+    <p class="big">The building footprints and landmarks come from OpenStreetMap, so the layout matches the real campus: Suzzallo, Kane, Odegaard, the brick monoliths, and Rainier Vista leading down to Drumheller Fountain. I modelled the plaza in Blender from photos and lit it for golden hour like the game. Every ledge, bank and stair set is skateable.</p>
+  </section>
+  <section class="page">
+    <h2>Making Me the Skater</h2><p class="tag">Photos &rarr; AI turnaround &rarr; 3D model &rarr; rig &rarr; in the game</p>
+    <h3>1 · Reference photos</h3>
+    <div class="gal2 refs"><figure><img class="zoom" src="images/skate-uw/photo-front.webp" alt="Reference photo of me from the front, arms out" loading="lazy"><figcaption>Front</figcaption></figure><figure><img class="zoom" src="images/skate-uw/photo-side.webp" alt="Reference photo of me from the side" loading="lazy"><figcaption>Side</figcaption></figure><figure><img class="zoom" src="images/skate-uw/photo-three-quarter.webp" alt="Reference photo of me from three-quarter back" loading="lazy"><figcaption>3/4 back</figcaption></figure><figure><img class="zoom" src="images/skate-uw/photo-back.webp" alt="Reference photo of me from the back" loading="lazy"><figcaption>Back</figcaption></figure></div>
+    <p class="big">I photographed my outfit from four sides with my arms out, so the shape of my body and clothes reads clearly.</p>
+    <h3>2 · AI turnaround sheet</h3>
+    <figure><img class="zoom" src="images/skate-uw/ai-turnaround.webp" alt="AI turnaround sheet: front, side and back of my character in an A-pose" loading="lazy"><figcaption>AI turnaround sheet</figcaption></figure>
+    <p class="big">An image AI turned the photos into a clean front, side and back sheet: no perspective, flat light and a plain background, which is what a 3D generator needs.</p>
+    <h3>3 · 3D model</h3>
+    <figure><img class="zoom" src="images/skate-uw/model-turnaround.webp" alt="3D model of me from front, 3/4, side, 3/4 back and back" loading="lazy"><figcaption>3D model in Blender</figcaption></figure>
+    <p class="big">An AI 3D generator built the mesh from the sheet. I cleaned it up in Blender and kept it light enough to run in a web browser.</p>
+    <h3>4 · Rig &amp; animation</h3>
+    <div class="two lead"><figure><img class="zoom" src="images/skate-uw/rig-joints.webp" alt="Skeleton joints placed on the model, front and side" loading="lazy"><figcaption>Joint placement</figcaption></figure>
+    <p class="big">A standard skeleton lets motion-capture clips drive the model: idle, walking, running, picking up the board and skating.</p></div>
+  </section>
+  <section class="page">
+    <h2>Mechanics</h2><p class="tag">Tilt to steer &middot; swipe the deck for tricks</p>
+    <div class="mech">
+      <figure class="phonebox"><div class="tilt"><svg class="arr l" viewBox="0 0 40 160" aria-hidden="true"><path d="M30 12q-30 68 0 136" fill="none" stroke="#3dff1c" stroke-width="5" stroke-linecap="round"/><path d="M18 138l12 10l4-15" fill="none" stroke="#3dff1c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="phone"><img class="zoom" src="images/skate-uw/controller.webp" alt="The phone controller: a skateboard deck to swipe, with Get Off, Recalibrate, Disconnect and Reset buttons" loading="lazy"><span class="island"></span><span class="btn b1"></span><span class="btn b2"></span><span class="btn b3"></span></div><svg class="arr r" viewBox="0 0 40 160" aria-hidden="true"><path d="M10 148q30 -68 0 -136" fill="none" stroke="#3dff1c" stroke-width="5" stroke-linecap="round"/><path d="M22 22l-12 -10l-4 15" fill="none" stroke="#3dff1c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><figcaption>Your phone is the board</figcaption></figure>
+      <div><ul class="combo"><li><b>Push</b><span><i>↓</i></span></li><li><b>Ollie</b><span><i>↓</i><i>↑</i></span></li><li><b>Kickflip</b><span><i>↓</i><i>↑</i><i>↗</i></span></li><li><b>Varial flip</b><span><i>↓</i><i>↑</i><i>↗</i><em>+</em><i>↙</i></span></li><li><b>Tre flip</b><span><i>↓</i><i>↑</i><em>…</em><i>↙</i></span></li><li><b>Pop shove-it</b><span><i>→</i><em>+</em><i>↙</i></span></li><li><b>Revert</b><span><i>↷</i></span></li><li><b>Frontside 180</b><span><i>↓</i><i>↑</i><i>↶</i></span></li><li><b>Steer</b><span><i>◀</i><i>▶</i></span></li><li><b>Brake</b><span><i>⤵</i></span></li></ul>
+      <p class="legend"><em>+</em> two fingers at once &middot; <em>…</em> hold &middot; <i>↶</i><i>↷</i> half circle</p></div>
+    </div>
+    <h3>When things go wrong</h3>
+    <div class="feat steps"><div><b>Bail</b>Land mid-spin &rarr; you fall</div><div><b>On foot</b>Phone &rarr; joystick, grab the board</div><div><b>Drop-out</b>Game pauses &rarr; tap Reconnect</div></div>
+  </section>
+  <section class="page">
+    <h2>Watch It</h2><p class="tag">Playing on the laptop, steering with my phone</p>
+    <video class="endvid" data-auto controls muted loop playsinline preload="none" poster="images/skate-uw/gameplay-poster.jpg" src="images/skate-uw/gameplay.mp4" aria-label="Video: playing Skate UW on the laptop while steering with my phone"></video>
+  </section>
+  <a class="key back" href="#games">Back</a>
+</main>
+
 <script>
 (function(){
   var views=[].slice.call(document.querySelectorAll('.view'));
@@ -396,7 +568,7 @@ function upd(){var d=document.documentElement,max=d.scrollHeight-innerHeight,p=m
 addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);addEventListener("hashchange",function(){setTimeout(upd,80)});upd()})();
 </script>
 <script>
-(function(){var L=document.querySelectorAll(".nav a");function m(){var h=(location.hash||"#home").slice(1);if(["husky","odegaard","skate"].indexOf(h)>-1)h="projects";L.forEach(function(a){if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")})}addEventListener("hashchange",m);m()})();
+(function(){var L=document.querySelectorAll(".nav a");function m(){var h=(location.hash||"#home").slice(1);if(["husky","odegaard","skate","games","skate-uw"].indexOf(h)>-1)h="projects";L.forEach(function(a){if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")})}addEventListener("hashchange",m);m()})();
 </script>
 <script>
 (function(){function draw(){document.querySelectorAll(".callout").forEach(function(c){var s=c.querySelector(".arrows"),im=c.querySelector("img");if(!s||!im||!im.offsetWidth||getComputedStyle(s).display==="none")return;var cr=c.getBoundingClientRect(),ir=im.getBoundingClientRect(),h="";c.querySelectorAll(".pill").forEach(function(p){var pr=p.getBoundingClientRect(),x1=pr.right-cr.left,y1=pr.top+pr.height/2-cr.top,x2=ir.left-cr.left+ir.width*p.dataset.x/100,y2=ir.top-cr.top+ir.height*p.dataset.y/100,a=Math.atan2(y2-y1,x2-x1),L=14;h+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#35106b" stroke-width="3" stroke-linecap="round"/><polygon points="'+x2+","+y2+" "+(x2-L*Math.cos(a-.45))+","+(y2-L*Math.sin(a-.45))+" "+(x2-L*Math.cos(a+.45))+","+(y2-L*Math.sin(a+.45))+'" fill="#35106b"/>'});s.innerHTML=h})}
@@ -410,8 +582,197 @@ b.addEventListener("click",function(e){var f=false;try{f=window.top!==window.sel
 if(!f)return;e.preventDefault();copy();var o=b.getAttribute("data-l")||b.textContent;b.setAttribute("data-l",o);b.textContent="Email copied!";clearTimeout(t);t=setTimeout(function(){b.textContent=o},2600)})})();
 </script>
 <script>
-(function(){var T={home:"Jayden Low | Portfolio",about:"About | Jayden Low",contact:"Contact | Jayden Low",projects:"Projects | Jayden Low",husky:"HuskyAthletics | Jayden Low",odegaard:"Odegaard Signage Redesign | Jayden Low",skate:"Skate Club Posters | Jayden Low"};function t(){document.title=T[(location.hash||"#home").slice(1)]||T.home}addEventListener("hashchange",t);t();
-var O=[["husky","HuskyAthletics"],["odegaard","Odegaard Signage"],["skate","Skate Club Posters"]];O.forEach(function(p,i){var n=O[(i+1)%3],m=document.getElementById(p[0]),d=document.createElement("div");d.className="nextwrap";d.innerHTML='<a class="key" href="#'+n[0]+'">Next: '+n[1]+' →</a>';m.appendChild(d)})})();
+(function(){var T={home:"Jayden Low | Portfolio",about:"About | Jayden Low",contact:"Contact | Jayden Low",projects:"Projects | Jayden Low",husky:"HuskyAthletics | Jayden Low",odegaard:"Odegaard Signage Redesign | Jayden Low",skate:"Skate Club Posters | Jayden Low",games:"AI Games | Jayden Low","skate-uw":"Skate UW | Jayden Low"};function t(){document.title=T[(location.hash||"#home").slice(1)]||T.home}addEventListener("hashchange",t);t();
+var O=[["husky","HuskyAthletics"],["odegaard","Odegaard Signage"],["skate","Skate Club Posters"],["games","AI Games"]];O.forEach(function(p,i){var n=O[(i+1)%O.length],m=document.getElementById(p[0]),d=document.createElement("div");d.className="nextwrap";d.innerHTML='<a class="key" href="#'+n[0]+'">Next: '+n[1]+' →</a>';m.appendChild(d)})})();
+</script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+// Red Square diorama: loads only when the Skate UW view is first opened, renders only while visible.
+const root = document.getElementById('dio');
+let started = false;
+function maybeStart() {
+  if (started || (location.hash || '').slice(1) !== 'skate-uw') return;
+  started = true;
+  init();
+}
+addEventListener('hashchange', maybeStart);
+maybeStart();
+
+async function init() {
+  const THREE = await import('three');
+  const { OrbitControls } = await import('three/addons/controls/OrbitControls.js');
+  const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
+
+  // Model coordinates are the game's (metres, +x east, +z south); the diorama is centred on (8, -6).
+  const CENTRE = new THREE.Vector3(8, 0, -6);
+  const PLACES = [
+    { name: 'Kane Hall', at: [10.7, 17, -44.7], text: 'Concrete colonnade above a wide open strip. Six 17.5 cm steps run down to the plaza and end flush on a pillar.' },
+    { name: 'Suzzallo Library', at: [75.5, 26, 19.2], text: 'Collegiate Gothic front: gabled portals, traceried windows, a terrace with a balustrade and steps.' },
+    { name: 'Odegaard Library', at: [-49.2, 18, -56.6], text: 'Brick masses and a balcony grid. Two short flights of three steps lead down past the pillars.' },
+    { name: 'Meany Hall', at: [-70.3, 15, 38.6], text: 'Banded brick with a concrete portal and a skylit metal roof. Its brick plinth is a ledge.' },
+    { name: 'Gerberding Hall', at: [-0.5, 22, 74.4], text: 'Gothic windows, an oriel and a tower, with fanned entrance steps and two handrails.' },
+    { name: 'Broken Obelisk', at: [43.75, 13, -9.25], text: 'The steel sculpture on the raised level. A gentle brick hill (3.9° at most) rolls up beside it.' },
+    { name: 'The pillars', at: [-30, 22, -31], text: 'Three brick garage vents, 19 m tall, with the Huskies and UW banners facing the plaza.' },
+    { name: 'Planter pads', at: [-15, 4, 30], text: 'Four aggregate pads around a brass drain: 50 cm ledges with brick tops.' },
+  ];
+  const $ = (s) => root.querySelector(s);
+  const stage = $('.stage'), layer = $('.labels'), card = $('.dcard'), loading = $('.loading'), pct = $('.pct');
+  const spin = $('.spin'), tags = $('.tags');
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.82;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  stage.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(32, 1, 1, 3000);
+  const HOME = { pos: new THREE.Vector3(250, 190, 300), target: new THREE.Vector3(0, 4, 0) };
+  camera.position.copy(HOME.pos);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.target.copy(HOME.target);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.minDistance = 25;
+  controls.maxDistance = 700;
+  controls.maxPolarAngle = Math.PI * 0.47;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  controls.autoRotate = !reduced;
+  controls.autoRotateSpeed = 0.55;
+  spin.setAttribute('aria-pressed', String(!reduced));
+
+  // Golden hour, as in the game: warm low sun from the south-west, warm sky, brick-red bounce.
+  scene.add(new THREE.HemisphereLight('#f3e3cc', '#4a2a24', 0.95));
+  const sun = new THREE.DirectionalLight('#ffc48a', 2.3);
+  const az = (31 * Math.PI) / 180, el = (30 * Math.PI) / 180;
+  sun.position.set(-Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).multiplyScalar(400);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(4096, 4096);
+  Object.assign(sun.shadow.camera, { left: -160, right: 160, top: 160, bottom: -160, near: 50, far: 900 });
+  sun.shadow.bias = -0.0004;
+  sun.shadow.normalBias = 0.05;
+  scene.add(sun);
+
+  const model = new THREE.Group();
+  model.position.set(-CENTRE.x, 0, -CENTRE.z);
+  scene.add(model);
+
+  new GLTFLoader().load('images/skate-uw/red-square.glb', (gltf) => {
+    gltf.scene.traverse((o) => {
+      if (!o.isMesh) return;
+      o.castShadow = true;
+      o.receiveShadow = true;
+      const m = o.material;
+      if (m.name === 'D_globe') { m.emissive = new THREE.Color('#ffd9a0'); m.emissiveIntensity = 1.6; }
+      if (m.name.startsWith('M_banner')) m.side = THREE.DoubleSide;
+    });
+    model.add(gltf.scene);
+    loading.hidden = true;
+  }, (e) => {
+    if (e.total) pct.textContent = Math.round((e.loaded / e.total) * 100) + '%';
+  }, () => { loading.textContent = 'The model could not load.'; });
+
+  // Labels: HTML pins that follow their 3D point; tapping one flies the camera there
+  const pins = PLACES.map((p) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pin';
+    b.innerHTML = '<b></b><i></i>';
+    b.querySelector('b').textContent = p.name;
+    b.addEventListener('click', () => focus(p, b));
+    layer.appendChild(b);
+    return { p, el: b, v: new THREE.Vector3(p.at[0] - CENTRE.x, p.at[1], p.at[2] - CENTRE.z) };
+  });
+
+  let flight = null;
+  const flyTo = (pos, target) => { flight = { t: 0, fromPos: camera.position.clone(), fromTarget: controls.target.clone(), pos, target }; };
+  const setSpin = (on) => { controls.autoRotate = on; spin.setAttribute('aria-pressed', String(on)); };
+  function focus(p, b) {
+    pins.forEach((q) => q.el.classList.toggle('on', q.el === b));
+    const target = new THREE.Vector3(p.at[0] - CENTRE.x, Math.max(2, p.at[1] * 0.45), p.at[2] - CENTRE.z);
+    const dir = camera.position.clone().sub(controls.target).setY(0).normalize();
+    flyTo(target.clone().add(dir.multiplyScalar(70)).setY(target.y + 42), target);
+    setSpin(false);
+    card.querySelector('h4').textContent = p.name;
+    card.querySelector('p').textContent = p.text;
+    card.hidden = false;
+  }
+
+  spin.addEventListener('click', () => setSpin(!controls.autoRotate));
+  controls.addEventListener('start', () => { flight = null; setSpin(false); });
+  tags.addEventListener('click', () => {
+    const on = layer.hidden;
+    layer.hidden = !on;
+    tags.setAttribute('aria-pressed', String(on));
+  });
+  $('.reset').addEventListener('click', () => {
+    pins.forEach((q) => q.el.classList.remove('on'));
+    card.hidden = true;
+    flyTo(HOME.pos.clone(), HOME.target.clone());
+    setSpin(!reduced);
+  });
+  const full = $('.full');
+  if (!root.requestFullscreen) full.hidden = true;
+  full.addEventListener('click', () => {
+    if (document.fullscreenElement) document.exitFullscreen(); else root.requestFullscreen().catch(() => {});
+  });
+  document.addEventListener('fullscreenchange', () => {
+    full.textContent = document.fullscreenElement === root ? 'Exit full screen' : 'Full screen';
+  });
+
+  function resize() {
+    const w = stage.clientWidth, h = stage.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.fov = w < h ? 74 : 32; // narrow screens: pull back so the whole square fits
+    camera.updateProjectionMatrix();
+  }
+  new ResizeObserver(resize).observe(stage);
+  resize();
+
+  // Only draw while the diorama is on screen
+  let visible = true;
+  new IntersectionObserver((es) => { visible = es[0].isIntersecting; }).observe(root);
+
+  const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const clock = new THREE.Clock();
+  const tmp = new THREE.Vector3();
+  renderer.setAnimationLoop(() => {
+    const dt = clock.getDelta();
+    if (!visible || !stage.clientWidth) return;
+    if (flight) {
+      flight.t = Math.min(1, flight.t + Math.min(dt, 0.1) / 1.2);
+      const k = ease(flight.t);
+      camera.position.lerpVectors(flight.fromPos, flight.pos, k);
+      controls.target.lerpVectors(flight.fromTarget, flight.target, k);
+      if (flight.t >= 1) flight = null;
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    if (!layer.hidden) {
+      const w = stage.clientWidth, h = stage.clientHeight;
+      for (const { v, el } of pins) {
+        tmp.copy(v).project(camera);
+        const show = tmp.z < 1 && Math.abs(tmp.x) < 1.05 && Math.abs(tmp.y) < 1.05;
+        el.style.visibility = show ? 'visible' : 'hidden';
+        el.style.transform = `translate(${((tmp.x + 1) / 2) * w}px, ${((1 - tmp.y) / 2) * h}px) translate(-50%, -100%)`;
+      }
+    }
+  });
+}
+</script>
+<script>
+(function(){function v(){var h=(location.hash||"#home").slice(1);document.querySelectorAll("video[data-auto]").forEach(function(x){if(x.closest(".view").id===h){x.muted=true;var p=x.play();if(p&&p.catch)p.catch(function(){})}else x.pause()})}addEventListener("hashchange",v);v()})();
 </script>
 </body>
 </html>
