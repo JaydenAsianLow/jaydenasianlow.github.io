@@ -12,7 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141312'/%3E%3Crect x='8' y='27' width='48' height='8' rx='4' fill='%23f2591b'/%3E%3Ccircle cx='19' cy='42' r='5' fill='%23f4f0e8'/%3E%3Ccircle cx='45' cy='42' r='5' fill='%23f4f0e8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Caveat:wght@600;700&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Caveat:wght@600;700&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 <script>
 // Decide before first paint whether the opening animation plays (every time the home page opens, if motion is allowed).
 (function(){var d=document.documentElement;d.classList.add('js');try{
@@ -102,16 +102,22 @@ body:not([data-v="home"]) #prog{display:block}
 /* ---------- lanyard badge ---------- */
 .stage{position:relative;height:min(74vh,640px);min-height:520px;perspective:1100px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .stage svg.strap{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.strap .band{fill:none;stroke:var(--accent);stroke-width:15;stroke-linecap:round;stroke-linejoin:round}
-.strap .stitch{fill:none;stroke:#fff;stroke-opacity:.55;stroke-width:1.5;stroke-dasharray:5 6;stroke-linecap:round}
+/* woven strap: a darker edge under the ribbon, a soft sheen down one side, and printed text along it */
+.strap .edge{fill:none;stroke:#a8380a;stroke-width:17;stroke-linecap:butt}
+.strap .band{fill:none;stroke:var(--accent);stroke-width:14;stroke-linecap:butt}
+.strap .weave{fill:none;stroke:rgba(0,0,0,.09);stroke-width:14;stroke-dasharray:1 2;stroke-linecap:butt}
+.strap .sheen{fill:none;stroke:rgba(255,255,255,.22);stroke-width:3;stroke-linecap:butt;transform:translateX(-3px)}
+.strap text{font:500 7.2px var(--mono);letter-spacing:.14em;fill:rgba(255,255,255,.92);text-transform:uppercase}
 .badge{--bw:250px;position:absolute;left:0;top:0;width:var(--bw);margin-left:calc(var(--bw)/-2);transform-origin:50% 0;transform-style:preserve-3d;cursor:grab;touch-action:none;will-change:transform;opacity:0}
 .badge.live{opacity:1}
 .badge.drag{cursor:grabbing}
-.badge .clip{position:absolute;left:50%;top:-4px;width:30px;height:42px;margin-left:-15px;border-radius:8px 8px 12px 12px;background:linear-gradient(90deg,#8d8d8d,#f2f2f2 45%,#9a9a9a);box-shadow:0 2px 4px #0005;z-index:3;transform:translateZ(1px)}
-.badge .clip::after{content:"";position:absolute;left:50%;top:6px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--paper);box-shadow:inset 0 1px 2px #0006}
-.badge .flip{position:relative;margin-top:26px;aspect-ratio:25/37;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.3,.5,1)}
+/* metal swivel clasp + split ring through the punched slot */
+.badge .clip{position:absolute;left:50%;top:-6px;width:40px;height:auto;margin-left:-20px;z-index:5;overflow:visible;filter:drop-shadow(0 2px 1.5px rgba(0,0,0,.4));transform:translateZ(2px)}
+.badge .flip{position:relative;margin-top:46px;aspect-ratio:25/37;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.3,.5,1)}
 .badge.back .flip{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;border-radius:18px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 22px 40px -14px rgba(20,19,18,.45),0 2px 0 rgba(255,255,255,.5) inset;display:flex;flex-direction:column}
+/* the card sits in a clear plastic sleeve: a pale rim around it and a glare that slides as the badge turns */
+.face{position:absolute;inset:0;border-radius:16px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 0 0 6px rgba(255,255,255,.55),0 0 0 7px rgba(20,19,18,.16),0 26px 36px -16px rgba(20,19,18,.5),0 8px 12px -8px rgba(20,19,18,.35);display:flex;flex-direction:column}
+.face::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(118deg,transparent calc(18% + var(--gl,0%)),rgba(255,255,255,.34) calc(30% + var(--gl,0%)),rgba(255,255,255,.08) calc(38% + var(--gl,0%)),transparent calc(46% + var(--gl,0%))),linear-gradient(180deg,rgba(255,255,255,.12),transparent 30%)}
 .face.f{background:var(--card);border:1px solid #0002}
 .face.b{background:var(--ink);color:var(--paper);transform:rotateY(180deg);padding:46px 20px 18px}
 .face .slot{position:absolute;left:50%;top:12px;width:44px;height:10px;margin-left:-22px;border-radius:6px;background:var(--paper);box-shadow:inset 0 1px 3px #0007;z-index:2}
@@ -159,8 +165,9 @@ body:not([data-v="home"]) #prog{display:block}
 .proj .shot .no{position:absolute;left:16px;top:14px;z-index:2;background:var(--ink);color:var(--lime);padding:6px 10px;border-radius:999px}
 .shot.husky{background:linear-gradient(140deg,#efe9f8,#d9cdf0)}
 .shot.ode{background:linear-gradient(140deg,#e9e6dc,#d6d0bf)}
-.shot.game{background:linear-gradient(140deg,#2a2724,#141312)}
-.shot.game img{max-width:86%;max-height:80%;border-radius:10px;box-shadow:0 16px 30px -10px #000a}
+/* Skate UW: the cover art fills the card edge to edge; the strips above and below match its own dark backdrop */
+.shot.game{background:radial-gradient(90% 70% at 70% 50%,#24130e,#160b09)}
+.shot.game img{max-width:100%;max-height:100%;width:100%}
 .shot.brickbg{background:#7a3a2c url(images/site/brick.webp) center/420px}
 .shot.brickbg::before{content:"";position:absolute;inset:0;background:rgba(255,214,190,.3)}
 .shot.brickbg img{max-width:44%;max-height:82%;border-radius:4px;box-shadow:0 12px 26px #0007}
@@ -190,7 +197,12 @@ body:not([data-v="home"]) #prog{display:block}
 .wall canvas,.wall>img{position:absolute;inset:0;width:100%;height:100%}
 .wall>img{object-fit:contain;padding:10%;box-sizing:border-box}
 .wall.js>img{display:none}
-.wall .can{position:absolute;left:0;top:0;width:clamp(80px,10vw,120px);height:auto;overflow:visible;opacity:0;pointer-events:none;transition:opacity .25s;filter:drop-shadow(0 8px 8px rgba(0,0,0,.45))}
+/* the hand and can (images/site/spray-hand.webp, rendered from the hand and can turnarounds in Hand/): a 200x240 box whose
+   point (10,50) is where the paint lands; the mist runs from there to the nozzle at (98,50) */
+.sprayhand{aspect-ratio:200/240;overflow:visible}
+.sprayhand svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sprayhand img{position:absolute;left:35.6%;top:7.7%;width:107%;max-width:none;height:auto;-webkit-mask-image:linear-gradient(140deg,#000 70%,transparent 93%);mask-image:linear-gradient(140deg,#000 70%,transparent 93%)}
+.wall .can{position:absolute;left:0;top:0;width:clamp(80px,10vw,120px);opacity:0;pointer-events:none;transition:opacity .25s;filter:drop-shadow(0 8px 8px rgba(0,0,0,.45))}
 .wall.spraying .can{opacity:1}
 .wall .can .mist{filter:blur(3px);animation:mist .12s steps(2) infinite}
 .wall figcaption{position:absolute;left:14px;bottom:12px;right:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;color:#f4f0e8;font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;text-shadow:0 1px 3px #000a}
@@ -374,27 +386,23 @@ img.zoom{cursor:zoom-in}
 #lb.on{display:grid}#lb img{max-width:100%;max-height:92vh;border-radius:10px}
 
 /* ---------- intro: a brick wall, the name gets spray-painted, then the skater kickflips past it ---------- */
-#intro{position:fixed;inset:0;z-index:100;color:var(--paper);overflow:hidden;display:none;transition:transform .75s cubic-bezier(.7,0,.2,1);
+#intro{--paint:#ff6b1a;position:fixed;inset:0;z-index:100;color:var(--paper);overflow:hidden;display:none;transition:transform .75s cubic-bezier(.7,0,.2,1);
   background:radial-gradient(120% 90% at 50% 40%,transparent 35%,rgba(10,5,4,.6) 100%),linear-gradient(rgba(24,12,9,.34),rgba(24,12,9,.34)),#6e3226 url(images/site/brick.webp) center top/480px 312px}
 .intro #intro{display:block}
 .intro body{overflow:hidden}
 #intro.out{transform:translateY(-101%)}
-#intro .i-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#intro .i-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none} /* the 3D layer sits on top but never takes clicks (the Skip button is under it) */
 /* little black labels, like stickers on the wall */
 .i-top{position:absolute;left:0;right:0;top:0;display:flex;justify-content:flex-end;padding:calc(18px + env(safe-area-inset-top,0px)) clamp(16px,4vw,40px) 0}
 .i-top span{background:var(--ink);color:var(--paper);padding:7px 11px;border-radius:6px;box-shadow:0 3px 0 rgba(0,0,0,.35)}
 .i-top span:last-child{background:var(--lime);color:var(--ink);transform:rotate(2deg)}
 /* the tag */
-.i-title{position:absolute;left:0;right:0;top:38%;transform:translateY(-50%) rotate(-3deg);display:flex;justify-content:center;align-items:center;gap:.28em;font:400 min(8.4vw,19vh)/1 'Rubik Spray Paint','Bricolage Grotesque',sans-serif;color:var(--lime);text-transform:uppercase;letter-spacing:.01em;user-select:none;pointer-events:none;transition:transform .35s cubic-bezier(.3,1.7,.5,1);filter:drop-shadow(.035em .045em 0 rgba(0,0,0,.6)) drop-shadow(0 0 .12em rgba(200,241,53,.35))}
+.i-title{position:absolute;left:0;right:0;top:38%;transform:translateY(-50%) rotate(-3deg);display:flex;justify-content:center;align-items:center;gap:.28em;font:400 min(9.8vw,22vh)/1 'Sedgwick Ave Display','Bricolage Grotesque',sans-serif;color:var(--paint);-webkit-text-stroke:.03em #141312;paint-order:stroke fill;text-transform:uppercase;letter-spacing:.01em;user-select:none;pointer-events:none;transition:transform .35s cubic-bezier(.3,1.7,.5,1);filter:drop-shadow(.035em .045em 0 rgba(0,0,0,.6)) drop-shadow(0 0 .12em rgba(255,107,26,.35))}
 .i-line{position:relative;display:block;padding:.08em .1em;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,#000 calc(var(--p,0%) - 12%),transparent var(--p,0%));mask-image:linear-gradient(90deg,#000 calc(var(--p,0%) - 12%),transparent var(--p,0%))}
-.i-line i{position:absolute;top:78%;width:.07em;height:0;border-radius:0 0 .05em .05em;background:var(--lime);transition:height 1.6s cubic-bezier(.2,.6,.3,1)}
+.i-line i{position:absolute;top:70%;width:.07em;height:0;border-radius:0 0 .05em .05em;background:var(--paint);box-shadow:0 0 0 .012em #141312;transition:height 1.6s cubic-bezier(.2,.6,.3,1)}
 #intro.sprayed .i-line i{height:var(--h,.5em)}
 #intro.hit .i-title{transform:translateY(-50%) rotate(-3deg) scale(1.06)}
-/* the hand and can */
-.i-hand{position:absolute;left:0;top:0;width:clamp(120px,15vw,210px);height:auto;transform-origin:5% 20.8%;opacity:0;translate:0 0;transition:opacity .2s,translate .6s cubic-bezier(.5,0,.8,.4);pointer-events:none;overflow:visible;filter:drop-shadow(0 10px 10px rgba(0,0,0,.45))}
-#intro.spraying .i-hand{opacity:1}
-#intro.sprayed .i-hand{opacity:0;translate:90px 160px;transition:opacity .45s .15s,translate .6s cubic-bezier(.5,0,.8,.4)}
-.i-hand .mist{filter:blur(3px);animation:mist .12s steps(2) infinite}
+/* spray mist flicker (the About wall's can) */
 @keyframes mist{50%{opacity:.6}}
 /* pavement in front of the wall: the skater rides along its top edge */
 .i-ground{position:absolute;left:0;right:0;top:78%;bottom:0;background:#23211f;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.3px);background-size:7px 7px;border-top:5px solid #3b3835;box-shadow:0 -14px 22px rgba(0,0,0,.35)}
@@ -406,9 +414,9 @@ img.zoom{cursor:zoom-in}
 .i-load::before{content:"";width:12px;height:12px;border-radius:50%;border:2px solid #a39c90;border-top-color:var(--lime);animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 #intro.playing .i-load{opacity:0}
-.i-skip{position:absolute;right:clamp(16px,4vw,40px);bottom:calc(22px + env(safe-area-inset-bottom,0px));font:500 .76rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:9px 14px;cursor:pointer;box-shadow:3px 4px 0 rgba(0,0,0,.6)}
+.i-skip{position:absolute;z-index:2;right:clamp(16px,4vw,40px);bottom:calc(22px + env(safe-area-inset-bottom,0px));font:500 .76rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:9px 14px;cursor:pointer;box-shadow:3px 4px 0 rgba(0,0,0,.6)}
 .i-skip:hover{background:var(--lime)}
-@media (orientation:portrait){.i-title{flex-direction:column;gap:0;font-size:min(18vw,13vh);line-height:.92;top:32%}.i-ground{top:70%}.i-load{left:clamp(16px,4vw,40px);transform:none}}
+@media (orientation:portrait){.i-title{flex-direction:column;gap:0;font-size:min(21vw,15vh);line-height:.92;top:32%}.i-ground{top:70%}.i-load{left:clamp(16px,4vw,40px);transform:none}}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
@@ -451,20 +459,10 @@ img.zoom{cursor:zoom-in}
 <body data-v="home">
 
 <!-- Opening animation (js/intro.js draws the skater on top of this) -->
-<div id="intro" role="img" aria-label="Opening animation: Jayden Low is spray-painted on a brick wall, then a 3D model of Jayden kickflips over a traffic cone labelled Portfolio">
+<div id="intro" role="img" aria-label="Opening animation: a 3D model of Jayden runs up to a brick wall and spray-paints Jayden Low on it, tosses the can labelled Portfolio onto the pavement, then rides back in and kickflips over it">
   <div class="i-top mono"><span>UW &middot; HCDE</span></div>
   <div class="i-title" aria-hidden="true"><span class="i-line">Jayden<i style="left:22%;--h:.42em"></i><i style="left:71%;--h:.7em"></i></span><span class="i-line">Low<i style="left:38%;--h:.55em"></i></span></div>
   <div class="i-ground"></div>
-  <svg class="i-hand" viewBox="0 0 200 240" aria-hidden="true">
-    <g class="mist" fill="#c8f135"><polygon points="98,50 14,16 2,50 14,86" opacity=".6"/><circle cx="22" cy="8" r="3"/><circle cx="6" cy="28" r="2.5"/><circle cx="4" cy="74" r="3"/><circle cx="24" cy="94" r="2.5"/><circle cx="40" cy="20" r="2"/><circle cx="44" cy="82" r="2"/></g>
-    <path d="M148 150 218 252 152 266 114 192Z" fill="#f2591b" stroke="#141312" stroke-width="4" stroke-linejoin="round"/>
-    <path d="M150 82q32 6 36 46v38q-4 32-36 34z" fill="#141312" stroke="#f4f0e8" stroke-width="3" stroke-linejoin="round"/>
-    <rect x="96" y="70" width="58" height="126" rx="9" fill="#e9e5dc" stroke="#141312" stroke-width="4"/>
-    <rect x="96" y="104" width="58" height="46" fill="#c8f135" stroke="#141312" stroke-width="4"/>
-    <rect x="104" y="56" width="42" height="16" rx="6" fill="#bdbdbd" stroke="#141312" stroke-width="4"/>
-    <rect x="94" y="40" width="30" height="18" rx="4" fill="#141312" stroke="#f4f0e8" stroke-width="2"/>
-    <g fill="#141312" stroke="#f4f0e8" stroke-width="3"><rect x="150" y="30" width="22" height="64" rx="11"/><rect x="106" y="27" width="66" height="19" rx="9.5"/><rect x="112" y="116" width="54" height="21" rx="10.5"/><rect x="110" y="140" width="56" height="21" rx="10.5"/><rect x="114" y="164" width="52" height="21" rx="10.5"/></g>
-  </svg>
   <div class="i-trick" aria-hidden="true"><small>Trick</small>Kickflip</div>
   <div class="i-load mono">Dropping in</div>
   <button class="i-skip" type="button">Skip intro</button>
@@ -491,9 +489,17 @@ img.zoom{cursor:zoom-in}
     </div>
     <div class="stagecol">
       <div class="stage" id="stage">
-        <svg class="strap" aria-hidden="true"><path class="band"/><path class="stitch"/></svg>
+        <svg class="strap" aria-hidden="true"><path class="edge" id="strapPath"/><path class="band"/><path class="weave"/><path class="sheen"/><text dy="2.6"><textPath href="#strapPath" startOffset="0">Jayden Low &#10022; UW HCDE &#10022; Jayden Low &#10022; UW HCDE &#10022; Jayden Low &#10022; UW HCDE &#10022; Jayden Low &#10022; UW HCDE &#10022;</textPath></text></svg>
         <div class="badge" id="badge" role="group" aria-label="Jayden's ID badge. Drag it to swing it, or flip it for contact details.">
-          <span class="clip"></span>
+          <svg class="clip" viewBox="0 0 40 70" aria-hidden="true">
+            <defs><linearGradient id="metal" x1="0" x2="1"><stop offset="0" stop-color="#76787a"/><stop offset=".42" stop-color="#f6f6f4"/><stop offset=".6" stop-color="#c9cacb"/><stop offset="1" stop-color="#6f7173"/></linearGradient></defs>
+            <path d="M12 0h16v9q0 5-8 5t-8-5z" fill="#a8380a"/>
+            <circle cx="20" cy="15" r="5.2" fill="none" stroke="url(#metal)" stroke-width="3"/>
+            <rect x="15.5" y="19" width="9" height="9" rx="2.4" fill="url(#metal)" stroke="#5a5c5e" stroke-width=".6"/>
+            <path d="M14.5 28h11l-.6 5q4.6 7 0 15-5 6.4-9.8 0-4.6-8 0-15z" fill="url(#metal)" stroke="#5a5c5e" stroke-width=".7"/>
+            <path d="M23.4 35q2.4 6.4 0 12" fill="none" stroke="#5a5c5e" stroke-width="1"/>
+            <ellipse cx="20" cy="58" rx="9" ry="7" fill="none" stroke="url(#metal)" stroke-width="2.6"/>
+          </svg>
           <div class="flip">
             <div class="face f">
               <span class="slot"></span>
@@ -535,7 +541,7 @@ img.zoom{cursor:zoom-in}
         <div class="info"><h3>Odegaard Signage Redesign <span class="go-ar" aria-hidden="true">&rarr;</span></h3><p>Clearer closure signs that help students navigate a year of library renovations.</p><div class="chips"><span class="chip">Signage</span><span class="chip">Visual hierarchy</span><span class="chip">Group project</span></div></div>
       </a>
       <a class="proj rv" href="#games">
-        <div class="shot game"><span class="no mono">03</span><img src="images/skate-uw/main-menu.webp" alt="Skate UW main menu with my 3D skater in Red Square" loading="lazy"></div>
+        <div class="shot game"><span class="no mono">03</span><img src="images/skate-uw/card.webp" width="1600" height="900" alt="Skate UW: a browser skate game where your phone is the skateboard. A laptop shows my skater in Red Square and a phone shows the skateboard controller." loading="lazy"></div>
         <div class="info"><h3>AI Games: Skate UW <span class="go-ar" aria-hidden="true">&rarr;</span></h3><p>A 3D skateboarding game set in Red Square that you control with your phone.</p><div class="chips"><span class="chip">Game design</span><span class="chip">3D modeling</span><span class="chip">AI tools</span></div></div>
       </a>
       <a class="proj rv" href="#skate">
@@ -568,16 +574,10 @@ img.zoom{cursor:zoom-in}
         <figure class="wall" id="wall">
           <img src="images/site/graf.webp" alt="My JLOW graffiti tag" loading="lazy">
           <canvas aria-hidden="true"></canvas>
-          <svg class="can" viewBox="0 0 200 240" aria-hidden="true">
-            <g class="mist" fill="#c8f135"><polygon points="98,50 14,16 2,50 14,86" opacity=".6"/><circle cx="22" cy="8" r="3"/><circle cx="6" cy="28" r="2.5"/><circle cx="4" cy="74" r="3"/><circle cx="24" cy="94" r="2.5"/><circle cx="40" cy="20" r="2"/><circle cx="44" cy="82" r="2"/></g>
-            <path d="M148 150 218 252 152 266 114 192Z" fill="#f2591b" stroke="#141312" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M150 82q32 6 36 46v38q-4 32-36 34z" fill="#141312" stroke="#f4f0e8" stroke-width="3" stroke-linejoin="round"/>
-            <rect x="96" y="70" width="58" height="126" rx="9" fill="#e9e5dc" stroke="#141312" stroke-width="4"/>
-            <rect x="96" y="104" width="58" height="46" fill="#c8f135" stroke="#141312" stroke-width="4"/>
-            <rect x="104" y="56" width="42" height="16" rx="6" fill="#bdbdbd" stroke="#141312" stroke-width="4"/>
-            <rect x="94" y="40" width="30" height="18" rx="4" fill="#141312" stroke="#f4f0e8" stroke-width="2"/>
-            <g fill="#141312" stroke="#f4f0e8" stroke-width="3"><rect x="150" y="30" width="22" height="64" rx="11"/><rect x="106" y="27" width="66" height="19" rx="9.5"/><rect x="112" y="116" width="54" height="21" rx="10.5"/><rect x="110" y="140" width="56" height="21" rx="10.5"/><rect x="114" y="164" width="52" height="21" rx="10.5"/></g>
-          </svg>
+          <div class="can sprayhand" aria-hidden="true">
+            <svg viewBox="0 0 200 240"><g class="mist" fill="#ff6b1a"><path d="M96 50 22 20Q4 50 22 80Z" opacity=".5"/><ellipse cx="20" cy="50" rx="16" ry="24" opacity=".5"/><circle cx="22" cy="12" r="3"/><circle cx="6" cy="30" r="2.5"/><circle cx="4" cy="72" r="3"/><circle cx="24" cy="90" r="2.5"/><circle cx="42" cy="24" r="2"/><circle cx="44" cy="78" r="2"/></g></svg>
+            <img src="images/site/spray-hand.webp" alt="" width="553" height="526" loading="lazy">
+          </div>
           <figcaption><span>My Tag &middot; Sprayed Fresh</span><button type="button" hidden>Spray It Again</button></figcaption>
         </figure>
       </div>
@@ -909,42 +909,59 @@ img.zoom{cursor:zoom-in}
     function copy(){try{if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(E).catch(old)}catch(x){}old()}
     b.addEventListener('click',function(e){var f=false;try{f=window.top!==window.self}catch(x){f=true}if(!f)return;e.preventDefault();copy();var o=b.getAttribute('data-l')||b.innerHTML;b.setAttribute('data-l',o);b.textContent='Email copied!';clearTimeout(t);t=setTimeout(function(){b.innerHTML=o},2600)})})();
 
-  // ---- lanyard badge: a rope of points (verlet) with the badge hanging off the end. Drag it, let go, click to flip.
+  // ---- lanyard badge: a weighted pendulum on a strap that can go slack. Drag it, let go, click to flip.
+  // Physics runs in fixed 1/120 s steps, so it moves the same on 60 Hz and 120 Hz screens.
   var Badge=(function(){
-    var stage=$('#stage'),badge=$('#badge'),band=$('.strap .band'),stitch=$('.strap .stitch');
-    var N=12,pts=[],seg=0,ax=0,ay=-24,ang=0,angV=0,tilt=0,drag=null,raf=0,calm=0,started=false,moved=0;
-    function layout(){var w=stage.clientWidth,h=stage.clientHeight,bh=badge.offsetHeight||380;ax=w/2;var L=Math.max(70,Math.min(h-bh-52-ay,h*.42));seg=L/N}
-    function reset(swing){layout();pts=[];for(var i=0;i<=N;i++){var x=swing?ax+i*seg*.92:ax,y=swing?ay-i*seg*.38:ay+i*seg;pts.push({x:x,y:y,px:x,py:y})}ang=swing?-1.1:0;angV=0}
+    var stage=$('#stage'),badge=$('#badge'),paths=$$('.strap path'),text=$('.strap textPath');
+    var G=1900,AIR=2.4,MAXV=1000,THROW=440,DT=1/120;          // px/s^2, 1/s damping, px/s speed caps
+    var ax=0,ay=-24,L=150,x=0,y=0,vx=0,vy=0,ang=0,angV=0,tilt=0;
+    var drag=null,raf=0,last=0,acc=0,calm=0,started=false;
+    function layout(){var w=stage.clientWidth,h=stage.clientHeight,bh=badge.offsetHeight||400;ax=w/2;L=Math.max(70,Math.min(h-bh-52-ay,h*.42))}
+    function place(a){layout();x=ax+Math.sin(a)*L;y=ay+Math.cos(a)*L;vx=vy=0;ang=-a;angV=0;tilt=0}
     function step(){
-      var i,p,e=pts[N];
-      // heavier damping (.965) so it settles quickly instead of swinging around
-      for(i=1;i<=N;i++){p=pts[i];if(drag&&i===N)continue;var vx=(p.x-p.px)*.965,vy=(p.y-p.py)*.965;p.px=p.x;p.py=p.y;p.x+=vx;p.y+=vy+(i===N?.9:.42)}
-      // while dragging, the badge eases toward the pointer rather than snapping to it, so quick flicks don't fling it
-      if(drag){e.px=e.x;e.py=e.y;var dx=drag.x-ax,dy=drag.y-ay,d=Math.hypot(dx,dy),R=seg*N;if(d>R){dx*=R/d;dy*=R/d}e.x+=(ax+dx-e.x)*.28;e.y+=(ay+dy-e.y)*.28}
-      for(var k=0;k<14;k++){pts[0].x=ax;pts[0].y=ay;for(i=0;i<N;i++){var a=pts[i],b=pts[i+1],ddx=b.x-a.x,ddy=b.y-a.y,dist=Math.hypot(ddx,ddy)||1e-4,f=(dist-seg)/dist,aw=i===0?0:.5,bw=(drag&&i+1===N)?0:(i===0?1:.5);if(drag&&i+1===N)aw=i===0?0:1;a.x+=ddx*f*aw;a.y+=ddy*f*aw;b.x-=ddx*f*bw;b.y-=ddy*f*bw}}
-      // the badge follows the direction of the last stretch of strap, with a little lag so it wobbles
-      var q=pts[N-2],target=-Math.atan2(e.x-q.x,e.y-q.y);angV+=(target-ang)*.09;angV*=.78;ang+=angV;
-      tilt+=(Math.max(-14,Math.min(14,(e.x-e.px)*1.1))-tilt)*.1;
+      if(drag){ // the hand pulls the badge along with a critically damped spring: smooth, never snappy
+        var k=420,c=2*Math.sqrt(k);vx+=(k*(drag.tx-x)-c*vx)*DT;vy+=(k*(drag.ty-y)-c*vy)*DT;
+      }else{vy+=G*DT;var f=Math.exp(-AIR*DT);vx*=f;vy*=f}
+      var sp=Math.hypot(vx,vy);if(sp>MAXV){vx*=MAXV/sp;vy*=MAXV/sp}
+      x+=vx*DT;y+=vy*DT;
+      // the strap stops the badge going further than its length (it can still go slack)
+      var dx=x-ax,dy=y-ay,d=Math.hypot(dx,dy),taut=d>=L-.5;
+      if(d>L){var nx=dx/d,ny=dy/d;x=ax+nx*L;y=ay+ny*L;var vr=vx*nx+vy*ny;if(vr>0){vx-=vr*nx;vy-=vr*ny}}
+      // the card hangs in line with a taut strap; on a slack strap it just hangs straight down
+      var target=taut?-Math.atan2(dx,dy):0;target=Math.max(-.7,Math.min(.7,target));
+      angV+=(95*(target-ang)-11*angV)*DT;ang+=angV*DT;
+      tilt+=((Math.max(-9,Math.min(9,vx*.014)))-tilt)*.08;
     }
     function draw(){
-      var d='M'+pts[0].x.toFixed(1)+' '+pts[0].y.toFixed(1);
-      for(var i=1;i<N;i++){var mx=(pts[i].x+pts[i+1].x)/2,my=(pts[i].y+pts[i+1].y)/2;d+=' Q'+pts[i].x.toFixed(1)+' '+pts[i].y.toFixed(1)+' '+mx.toFixed(1)+' '+my.toFixed(1)}
-      d+=' L'+pts[N].x.toFixed(1)+' '+pts[N].y.toFixed(1);band.setAttribute('d',d);stitch.setAttribute('d',d);
-      badge.style.transform='translate3d('+pts[N].x.toFixed(1)+'px,'+pts[N].y.toFixed(1)+'px,0) rotate('+ang.toFixed(4)+'rad) rotateY('+tilt.toFixed(2)+'deg)';
+      // straight when taut, sagging into a curve when slack
+      var dx=x-ax,dy=y-ay,d=Math.hypot(dx,dy),sag=Math.sqrt(Math.max(0,L*L-d*d))*.55;
+      var mx=(ax+x)/2,my=(ay+y)/2+sag,s='M'+ax.toFixed(1)+' '+ay.toFixed(1)+' Q'+mx.toFixed(1)+' '+my.toFixed(1)+' '+x.toFixed(1)+' '+y.toFixed(1);
+      for(var i=0;i<paths.length;i++)paths[i].setAttribute('d',s);
+      text.setAttribute('startOffset',Math.max(0,d-L+8).toFixed(1));
+      badge.style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0) rotate('+ang.toFixed(4)+'rad) rotateY('+tilt.toFixed(2)+'deg)';
+      badge.style.setProperty('--gl',(ang*60+tilt*2.2).toFixed(1)+'%');
     }
-    function tick(){step();draw();var e=pts[N],sp=Math.abs(e.x-e.px)+Math.abs(e.y-e.py)+Math.abs(angV)*20;calm=sp<.03&&!drag?calm+1:0;raf=calm>50?0:requestAnimationFrame(tick)}
+    function tick(now){
+      acc+=Math.min(.05,(now-(last||now))/1000);last=now;
+      while(acc>=DT){step();acc-=DT}
+      draw();
+      var moving=Math.hypot(vx,vy)>4||Math.abs(angV)>.02;
+      calm=!moving&&!drag?calm+1:0;
+      if(calm>30){raf=0;last=0;acc=0}else raf=requestAnimationFrame(tick);
+    }
     function wake(){calm=0;if(!raf&&started&&!reduced)raf=requestAnimationFrame(tick)}
     function local(e){var r=stage.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
-    badge.addEventListener('pointerdown',function(e){if(e.target.closest('a,button'))return;var p=local(e);drag={x:pts[N].x,y:pts[N].y,ox:p.x-pts[N].x,oy:p.y-pts[N].y};moved=0;badge.classList.add('drag');try{badge.setPointerCapture(e.pointerId)}catch(x){}wake();e.preventDefault()});
-    badge.addEventListener('pointermove',function(e){if(!drag)return;var p=local(e),nx=p.x-drag.ox,ny=p.y-drag.oy;moved+=Math.abs(nx-drag.x)+Math.abs(ny-drag.y);drag.x=nx;drag.y=ny;if(reduced){pts[N].x=nx;pts[N].y=ny;step();draw()}});
-    function up(){if(!drag)return;drag=null;badge.classList.remove('drag');if(moved<8)flip();if(reduced){reset(false);draw()}wake()}
+    badge.addEventListener('pointerdown',function(e){if(e.target.closest('a,button'))return;var p=local(e);drag={sx:p.x,sy:p.y,ox:p.x-x,oy:p.y-y,tx:x,ty:y,far:false};badge.classList.add('drag');try{badge.setPointerCapture(e.pointerId)}catch(x){}wake();e.preventDefault()});
+    badge.addEventListener('pointermove',function(e){if(!drag)return;var p=local(e);if(Math.hypot(p.x-drag.sx,p.y-drag.sy)>6)drag.far=true;drag.tx=p.x-drag.ox;drag.ty=p.y-drag.oy});
+    function up(){if(!drag)return;var tap=!drag.far;drag=null;badge.classList.remove('drag');
+      var sp=Math.hypot(vx,vy);if(sp>THROW){vx*=THROW/sp;vy*=THROW/sp} // a fast flick can't fling it around
+      if(tap)flip();if(reduced){place(0);draw()}wake()}
     badge.addEventListener('pointerup',up);badge.addEventListener('pointercancel',up);
-    function flip(){badge.classList.toggle('back');if(pts.length){pts[N].px-=3;wake()}}
+    function flip(){badge.classList.toggle('back');vx+=40;wake()}
     $$('[data-flip]',badge).forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();flip()})});
-    // scrolling gives it a nudge
-    var ly=scrollY;addEventListener('scroll',function(){var dy=scrollY-ly;ly=scrollY;if(!started||!pts.length||document.body.getAttribute('data-v')!=='home'||scrollY>innerHeight)return;pts[N].px+=Math.max(-4,Math.min(4,dy*.06));wake()},{passive:true});
-    var rw=0;addEventListener('resize',function(){if(!started||stage.clientWidth===rw)return;rw=stage.clientWidth;reset(false);draw();wake()});
-    return{start:function(){if(started){reset(true);wake();return}started=true;rw=stage.clientWidth;reset(!reduced);draw();badge.classList.add('live');wake()}};
+    var rw=0;addEventListener('resize',function(){if(!started||stage.clientWidth===rw)return;rw=stage.clientWidth;place(0);draw();wake()});
+    // it arrives with a small, gentle swing that settles in a couple of seconds
+    return{start:function(){started=true;rw=stage.clientWidth;place(reduced?0:-.32);draw();badge.classList.add('live');wake()}};
   })();
   window.__badge=Badge;
 
@@ -1039,50 +1056,44 @@ img.zoom{cursor:zoom-in}
 } }
 </script>
 <script type="module">
-// Opening animation: spray the name on the wall while the skater loads, play the kickflip, then lift the curtain.
-// Any failure just shows the site.
+// Opening animation (js/intro.js): the skater runs in and sprays the name, tosses the can, then kickflips over it.
+// This side paints the letters as his spray moves along them, and lifts the curtain at the end. Any failure just shows the site.
 const root = document.documentElement, el = document.getElementById('intro');
-const lines = [...el.querySelectorAll('.i-line')], hand = el.querySelector('.i-hand');
+const lines = [...el.querySelectorAll('.i-line')];
 const setPaint = (v) => lines.forEach((l) => l.style.setProperty('--p', v));
-let running = false, sprayRaf = 0;
+let running = false;
 
-// The hand sweeps along each word; a soft-edged mask uncovers the letters behind the nozzle.
-// Resolves once most of the name is on the wall (the skater can start rolling in while it finishes).
-function spray() {
-  cancelAnimationFrame(sprayRaf);
-  return new Promise((resolve) => {
-    const DUR = 1500;
-    let t0 = null, told = false;
-    const step = (now) => {
-      t0 ??= now;
-      const g = Math.min(1, (now - t0) / DUR);
-      const box = el.getBoundingClientRect(), rects = lines.map((l) => l.getBoundingClientRect());
-      const total = rects.reduce((a, r) => a + r.width, 0) || 1;
-      let acc = 0;
-      lines.forEach((l, i) => {
-        const r = rects[i], a = acc / total, b = (acc + r.width) / total;
-        acc += r.width;
-        const p = Math.min(1, Math.max(0, (g - a) / (b - a)));
-        l.style.setProperty('--p', p * 114 + '%');
-        if ((g >= a && g < b) || (g >= 1 && i === lines.length - 1)) {
-          const k = hand.getBoundingClientRect().width / 200 || 1;
-          const x = r.left - box.left + p * r.width, y = r.top - box.top + r.height * (0.5 + 0.24 * Math.sin(g * 36));
-          hand.style.transform = `translate(${x - 10 * k}px,${y - 50 * k}px) rotate(-10deg)`;
-        }
-      });
-      if (g >= 0.72 && !told) { told = true; resolve(); }
-      if (g < 1) sprayRaf = requestAnimationFrame(step); else el.classList.add('sprayed');
-    };
-    sprayRaf = requestAnimationFrame((now) => { step(now); el.classList.add('spraying'); });
+// The spray sweeps along each word in turn, zig-zagging up and down; a soft-edged mask uncovers the letters behind it.
+// at(g): where the paint lands at progress g (0..1), in px inside #intro. set(g): show the name painted up to g.
+// The letters' boxes are measured once (and again after a resize), not every frame: reading layout right after
+// changing the mask would make the browser redo layout dozens of times per frame.
+let geo = null;
+addEventListener('resize', () => { geo = null; });
+function sweep(g, each) {
+  if (!geo) { const rects = lines.map((l) => l.getBoundingClientRect()); geo = { box: el.getBoundingClientRect(), rects, total: rects.reduce((a, r) => a + r.width, 0) || 1 }; }
+  const { box, rects, total } = geo;
+  let acc = 0, at = null;
+  lines.forEach((l, i) => {
+    const r = rects[i], a = acc / total, b = (acc + r.width) / total;
+    acc += r.width;
+    const p = Math.min(1, Math.max(0, (g - a) / (b - a)));
+    if (each) each(l, p);
+    if ((g >= a && g < b) || (g >= 1 && i === lines.length - 1)) at = { x: r.left - box.left + p * r.width, y: r.top - box.top + r.height * (0.5 + 0.24 * Math.sin(g * 36)) };
   });
+  return at;
 }
+const paint = {
+  at: (g) => sweep(g),
+  set: (g) => { if (g === paint.last) return; paint.last = g; sweep(g, (l, p) => l.style.setProperty('--p', p * 114 + '%')); },
+  last: -1,
+};
 
 async function run() {
   if (running) return;
   running = true;
   el.className = '';
   setPaint('0%');
-  hand.style.transform = 'translate(-300px,0)';
+  paint.last = -1;
   root.classList.add('intro');
   let end = () => {};
   let finished = false;
@@ -1090,7 +1101,6 @@ async function run() {
   const reveal = () => {
     if (finished) return;
     finished = true;
-    cancelAnimationFrame(sprayRaf);
     clearTimeout(bail);
     removeEventListener('keydown', onKey);
     el.classList.add('out');
@@ -1104,22 +1114,18 @@ async function run() {
   try {
     const freeze = new URLSearchParams(location.search).get('introT');
     const mod = import('./js/intro.js');
-    if (freeze != null) {
-      setPaint('114%');
-      el.classList.add('sprayed');
-    } else {
-      try { await Promise.race([document.fonts.load('400 40px "Rubik Spray Paint"'), new Promise((r) => setTimeout(r, 1500))]); } catch (e) {}
-      const painted = spray();
-      await Promise.all([mod.then((m) => m.preload()), painted]);
-      if (finished) return; // skipped while the paint was still wet
-    }
-    const { playIntro } = await mod;
+    // the letters must be laid out in the spray font before the skater aims at them
+    try { await Promise.race([document.fonts.load('400 40px "Sedgwick Ave Display"'), new Promise((r) => setTimeout(r, 1500))]); } catch (e) {}
+    const { playIntro, MARKS } = await mod;
+    if (finished) return;
+    geo = null; // measure the letters now that the spray font is in
     const p = playIntro(el, {
       freeze: freeze == null ? null : +freeze,
+      paint,
       skip: (fn) => { end = fn; clearTimeout(bail); el.classList.add('playing'); },
-      on: (k) => { if (k === 'pop') el.classList.add('pop'); if (k === 'land') el.classList.add('hit'); if (k === 'lift') reveal(); },
+      on: (k) => { if (k === 'sprayed') el.classList.add('sprayed'); if (k === 'pop') el.classList.add('pop'); if (k === 'land') el.classList.add('hit'); if (k === 'lift') reveal(); },
     });
-    if (freeze != null) { await p; clearTimeout(bail); el.classList.add('playing', +freeze > 1.38 ? 'pop' : 'x', +freeze > 1.98 ? 'hit' : 'x'); window.__ready = true; return; }
+    if (freeze != null) { await p; clearTimeout(bail); const f = +freeze; el.classList.add('playing', f > MARKS.sprayed ? 'sprayed' : 'x', f > MARKS.pop ? 'pop' : 'x', f > MARKS.land ? 'hit' : 'x'); window.__ready = true; return; }
     await p;
   } catch (e) { console.warn('[intro]', e); }
   reveal();
